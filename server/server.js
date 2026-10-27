@@ -21,6 +21,7 @@ const WEB_ROOT = path.resolve(__dirname, "..");
 const SESSION_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
 
 app.disable("x-powered-by");
+if (process.env.NODE_ENV === "production") app.set("trust proxy", 1);
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 
